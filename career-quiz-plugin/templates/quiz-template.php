@@ -15,7 +15,7 @@ function career_quiz_template() {
         <h2>Career Quiz</h2>
         <form id="career-quiz-form">
             <div id="career-quiz-questions"></div>
-            <button type="submit">Get Recommendation</button>
+            <button type="submit">Take a Test</button>
         </form>
         <div id="career-quiz-result"></div>
     </div>

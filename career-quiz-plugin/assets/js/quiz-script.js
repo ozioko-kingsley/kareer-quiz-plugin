@@ -20,8 +20,8 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!selectedOption) {
                 allAnswered = false;
             } else {
-                let value = parseInt(selectedOption.value) || 0;
-                totalScore += value;
+                let value = Number(selectedOption.value); // More reliable than parseInt()
+                totalScore += isNaN(value) ? 0 : value;
             }
         });
 
@@ -31,14 +31,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Career recommendation logic
-        let recommendation;
-        if (totalScore >= 15) {
-            recommendation = "Engineering, Data Science, or Technology";
-        } else if (totalScore >= 8) {
-            recommendation = "Business, Marketing, or Management";
-        } else {
-            recommendation = "Arts, Humanities, or Creative Fields";
-        }
+        let recommendation = totalScore >= 15 
+            ? "Engineering, Data Science, or Technology" 
+            : totalScore >= 8 
+            ? "Business, Marketing, or Management" 
+            : "Arts, Humanities, or Creative Fields";
 
         resultContainer.innerHTML = `<h3>Recommended Career Path: ${recommendation}</h3>`;
     });

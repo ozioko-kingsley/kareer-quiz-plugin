@@ -4,33 +4,35 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-// Function to retrieve quiz questions (Add this if missing)
-function get_career_quiz_questions() {
-    return [
-        [
-            'question' => 'What type of work do you enjoy most?',
-            'options' => [
-                ['text' => 'Tech', 'score' => 5],
-                ['text' => 'Health', 'score' => 4],
-                ['text' => 'Arts', 'score' => 3]
+// Ensure get_career_quiz_questions() exists to avoid errors
+if (!function_exists('get_career_quiz_questions')) {
+    function get_career_quiz_questions() {
+        return [
+            [
+                'question' => 'What type of work do you enjoy most?',
+                'options' => [
+                    ['text' => 'Tech', 'score' => 5],
+                    ['text' => 'Health', 'score' => 4],
+                    ['text' => 'Arts', 'score' => 3]
+                ]
+            ],
+            [
+                'question' => 'Do you prefer working with people or independently?',
+                'options' => [
+                    ['text' => 'People', 'score' => 4],
+                    ['text' => 'Independently', 'score' => 5]
+                ]
+            ],
+            [
+                'question' => 'What is your preferred work environment?',
+                'options' => [
+                    ['text' => 'Office', 'score' => 4],
+                    ['text' => 'Remote', 'score' => 5],
+                    ['text' => 'Field', 'score' => 3]
+                ]
             ]
-        ],
-        [
-            'question' => 'Do you prefer working with people or independently?',
-            'options' => [
-                ['text' => 'People', 'score' => 4],
-                ['text' => 'Independently', 'score' => 5]
-            ]
-        ],
-        [
-            'question' => 'What is your preferred work environment?',
-            'options' => [
-                ['text' => 'Office', 'score' => 4],
-                ['text' => 'Remote', 'score' => 5],
-                ['text' => 'Field', 'score' => 3]
-            ]
-        ]
-    ];
+        ];
+    }
 }
 
 // Shortcode to display the quiz
